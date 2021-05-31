@@ -6,13 +6,11 @@ import 'package:my_netflix_design/data/models/movie_model.dart';
 import 'package:my_netflix_design/data/repository/movie_repo/movie_repository.dart';
 
 void main() async {
-  MovieRepository movieRepository = MovieRepository();
-  movieRepository.fetchPopularMovies();
-  List<MovieModel> listMovies = await movieRepository.fetchPopularMovies();
-  String imageUrl = "$BASE_IMAGE" + listMovies[16].posterPath;
-  print("$BASE_IMAGE\n");
-  print(imageUrl);
-
+  // MovieRepository movieRepository = MovieRepository();
+  // movieRepository.fetchPopularMovies();
+  // List<MovieModel> listMovies = await movieRepository.fetchPopularMovies();
+  // String imageUrl = "$BASE_IMAGE" + listMovies[16].posterPath;
+  // print(imageUrl);
   runApp(MyApp());
 }
 

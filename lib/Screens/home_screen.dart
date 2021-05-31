@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             // buildMovieListView(250, listImageUrl, true),
             Container(
-              height: 280.0,
+              color: Colors.black,
+              height: 250.0,
               width: double.infinity,
               child: PageView.builder(
                 controller: _pageController,
