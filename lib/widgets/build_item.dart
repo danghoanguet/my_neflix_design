@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_netflix_design/models/movie_models.dart';
+import 'package:my_netflix_design/my models/movie_models.dart';
 
 Widget buildItem() {
   return Container(

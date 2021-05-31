@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_netflix_design/Screens/movie_screen.dart';
-import 'package:my_netflix_design/models/movie_models.dart';
+import 'package:my_netflix_design/my models/movie_models.dart';
 
 Widget buildMovieListView(double height, List<String> data, bool movieTitle) {
   return Container(
@@ -33,7 +33,7 @@ Widget buildMovieListView(double height, List<String> data, bool movieTitle) {
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black54,
+                          color: Colors.black87,
                           offset: Offset(0.0, 4.0),
                           blurRadius: 6.0,
                         ),
@@ -41,7 +41,9 @@ Widget buildMovieListView(double height, List<String> data, bool movieTitle) {
                     ),
                     child: Stack(
                       children: [
-                        Image(image: AssetImage(data[index])),
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image(image: AssetImage(data[index]))),
                         Positioned(
                             bottom: 30,
                             left: 10,

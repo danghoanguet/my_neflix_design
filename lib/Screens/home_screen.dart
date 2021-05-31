@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_netflix_design/models/movie_models.dart';
+import 'package:my_netflix_design/my models/movie_models.dart';
+import 'package:my_netflix_design/widgets/buildPageView.dart';
 import 'package:my_netflix_design/widgets/build_tag_choices.dart';
 import 'package:my_netflix_design/widgets/build_movie_listview.dart';
 import 'package:my_netflix_design/widgets/build_item.dart';
@@ -11,6 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  PageController _pageController = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 1, viewportFraction: 0.8);
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> listImageUrl = [];
@@ -31,9 +40,20 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: ListView(
-          padding: EdgeInsets.all(25),
+          padding: EdgeInsets.all(10),
           children: <Widget>[
-            buildMovieListView(250, listImageUrl, true),
+            // buildMovieListView(250, listImageUrl, true),
+            Container(
+              height: 280.0,
+              width: double.infinity,
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: movies.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return BuildPageView(context, index);
+                },
+              ),
+            ),
             SizedBox(
               height: 15,
             ),

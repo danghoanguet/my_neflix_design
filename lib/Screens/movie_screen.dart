@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_netflix_design/models/movie_models.dart';
+import 'package:my_netflix_design/my models/movie_models.dart';
 
 class MovieScreen extends StatefulWidget {
   final Movie movie;
@@ -18,10 +18,17 @@ class _MovieScreenState extends State<MovieScreen> {
       body: ListView(
         children: [
           Stack(
+            alignment: AlignmentDirectional.topStart,
             children: <Widget>[
-              Container(
-                child: Image(
-                  image: AssetImage(widget.movie.imageUrl),
+              ClipPath(
+                clipper: MyClipper(),
+                child: Container(
+                  child: Image(
+                    height: 300.0,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    image: AssetImage(widget.movie.imageUrl),
+                  ),
                 ),
               ),
               Row(
@@ -61,5 +68,23 @@ class _MovieScreenState extends State<MovieScreen> {
         ? print('Add to your favorite list movie')
         : print('Delete from your favorite list movie');
     setState(() {});
+  }
+}
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 65);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 65);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    return false;
   }
 }
