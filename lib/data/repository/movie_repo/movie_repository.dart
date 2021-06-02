@@ -27,4 +27,14 @@ class MovieRepository {
 
     return movies;
   }
+
+  Future<List<String>> getPopularImageUrl() async {
+    MovieRepository movieRepository = MovieRepository();
+    List<MovieModel> listMovies = await movieRepository.fetchPopularMovies();
+    //String imageUrl = "$BASE_IMAGE" + listMovies[16].posterPath;
+    List<String> imageUrl = [];
+    for (MovieModel mov in listMovies)
+      imageUrl.add("$BASE_IMAGE" + mov.posterPath);
+    return imageUrl;
+  }
 }

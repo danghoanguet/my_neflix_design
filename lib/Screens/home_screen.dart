@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_netflix_design/data/repository/movie_repo/movie_repository.dart';
 import 'package:my_netflix_design/my models/movie_models.dart';
 import 'package:my_netflix_design/widgets/buildPageView.dart';
 import 'package:my_netflix_design/widgets/build_tag_choices.dart';
@@ -22,10 +23,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> listImageUrl = [];
-    for (Movie mov in movies) {
-      listImageUrl.add(mov.imageUrl);
-    }
+    // MovieRepository movieRepository = MovieRepository();
+    // Future<List<String>> imageUrl = movieRepository.getPopularImageUrl();
+    // List<String> listImageUrl = [];
+    // for (Movie mov in movies) {
+    //   listImageUrl.add(mov.imageUrl);
+    // }
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -40,18 +43,17 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: ListView(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           children: <Widget>[
             // buildMovieListView(250, listImageUrl, true),
             Container(
-              color: Colors.black,
               height: 250.0,
               width: double.infinity,
               child: PageView.builder(
                 controller: _pageController,
                 itemCount: movies.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return BuildPageView(context, index);
+                  return buildPageView(context, index);
                 },
               ),
             ),

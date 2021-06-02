@@ -9,8 +9,9 @@ void main() async {
   // MovieRepository movieRepository = MovieRepository();
   // movieRepository.fetchPopularMovies();
   // List<MovieModel> listMovies = await movieRepository.fetchPopularMovies();
-  // String imageUrl = "$BASE_IMAGE" + listMovies[16].posterPath;
-  // print(imageUrl);
+  // // String imageUrl = "$BASE_IMAGE" + listMovies[16].posterPath;
+  // // print(imageUrl);
+  // Future<List<String>> imageUrl = movieRepository.getPopularImageUrl();
   runApp(MyApp());
 }
 
