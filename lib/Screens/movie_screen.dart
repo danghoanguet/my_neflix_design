@@ -18,7 +18,6 @@ class _MovieScreenState extends State<MovieScreen> {
       body: ListView(
         children: [
           Stack(
-            alignment: AlignmentDirectional.topStart,
             children: <Widget>[
               ClipPath(
                 clipper: MyClipper(),
@@ -54,6 +53,35 @@ class _MovieScreenState extends State<MovieScreen> {
                     iconSize: 30,
                   ),
                 ],
+              ),
+              Positioned(
+                bottom: 0,
+                child: Align(
+                  alignment: Alignment
+                      .bottomCenter, // why this not work with with bottom: 0?
+                  child: GestureDetector(
+                    onTap: () => print("play video"),
+                    child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black54,
+                            offset: Offset(0.0, 4.0),
+                            blurRadius: 10.0,
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        Icons.play_arrow,
+                        size: 50.0,
+                        color: Colors.red[300],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           )
