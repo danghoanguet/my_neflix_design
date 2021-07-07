@@ -30,11 +30,12 @@ Widget buildPageView(BuildContext context, int index) {
       children: <Widget>[
         Center(
           child: Container(
+            height: 230,
             margin: EdgeInsets.symmetric(
               horizontal: 10,
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(20.0),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black54,
@@ -49,7 +50,8 @@ Widget buildPageView(BuildContext context, int index) {
                 borderRadius: BorderRadius.circular(10.0),
                 child: Image(
                   image: AssetImage(movies[index].imageUrl),
-                  height: 230.0,
+                  //height: 230.0,
+                  // this.height is Container.height
                   fit: BoxFit.cover,
                 ),
               ),

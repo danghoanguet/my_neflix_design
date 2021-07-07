@@ -20,14 +20,16 @@ class _MovieScreenState extends State<MovieScreen> {
           Stack(
             alignment: AlignmentDirectional.topStart,
             children: <Widget>[
-              ClipPath(
-                clipper: MyClipper(),
-                child: Container(
-                  child: Image(
-                    height: 300.0,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    image: AssetImage(widget.movie.imageUrl),
+              Container(
+                height: 370,
+                child: ClipPath(
+                  clipper: MyClipper(),
+                  child: Container(
+                    child: Image(
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      image: AssetImage(widget.movie.imageUrl),
+                    ),
                   ),
                 ),
               ),
@@ -55,6 +57,25 @@ class _MovieScreenState extends State<MovieScreen> {
                   ),
                 ],
               ),
+              Positioned.fill(
+                // bottom: 10.0,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: RawMaterialButton(
+                    padding: EdgeInsets.all(10.0),
+                    elevation: 12.0,
+                    onPressed: () => print('Play Video'),
+                    shape: CircleBorder(),
+                    fillColor: Colors.white,
+                    child: Icon(
+                      Icons.play_arrow,
+                      size: 60.0,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+              
             ],
           )
         ],
